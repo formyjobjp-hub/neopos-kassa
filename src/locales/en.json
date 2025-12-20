@@ -1,0 +1,19 @@
+{
+    "login": {
+        "title": "Please enter your PIN",
+        "placeholder": "Please enter your PIN",
+        "clear": "Clear"
+    },
+    "nav": {
+        "hall": "Hall",
+        "order": "Order",
+        "waiting": "Waiting",
+        "checkout": "Checkout",
+        "settings": "Settings"
+    },
+    "hall": {
+        "guests": "Number of guests",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+    }
+}

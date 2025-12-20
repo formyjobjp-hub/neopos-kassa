@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface-light text-surface-dark font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-manrope font-extrabold tracking-tight text-surface-dark;
+  }
+}
+
+@layer components {
+  .btn-pos {
+    @apply h-[56px] px-8 rounded-3xl font-manrope font-bold transition-all active:scale-95 flex items-center justify-center gap-3 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .card-pos {
+    @apply bg-white rounded-3xl shadow-premium border border-transparent hover:border-brand/10 transition-all overflow-hidden animate-fade-in;
+  }
+
+  .input-pos {
+    @apply h-[56px] px-6 rounded-2xl bg-white border-2 border-surface-gray-bg focus:border-brand focus:ring-0 outline-none transition-all font-bold text-surface-dark placeholder:text-gray-400;
+  }
+
+  .keypad-digit {
+    @apply flex items-center justify-center text-[36px] font-semibold text-surface-dark h-[64px] rounded-2xl bg-white hover:bg-surface-gray-bg transition-all cursor-pointer active:scale-95;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Scrollbar customize */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FDE68A;
+  /* Amber 200 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FBBF24;
+  /* Amber 400 */
+}
