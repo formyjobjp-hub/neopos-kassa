@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useCartStore } from "@/features/cart";
 import { FluidPanel } from '@/components/common';
 import { BackButton } from '@/components/ui';
@@ -8,11 +9,12 @@ import { OrderSummary, PaymentMethods } from '@/features/checkout';
 
 const CheckoutView = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation('common');
     const { getSubtotal, getServiceCharge, getTotal, clearCart } = useCartStore();
     const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
 
     const finalizePayment = () => {
-        toast.success(`Payment successful with ${selectedMethod?.toUpperCase()}!`, {
+        toast.success(t('checkout.paymentSuccess'), {
             style: {
                 borderRadius: '16px',
                 background: '#1F2937',
@@ -34,17 +36,13 @@ const CheckoutView = () => {
             <div className="max-w-6xl mx-auto w-full h-full">
                 <div className="flex items-center gap-4 mb-6">
                     <BackButton to="/menu" />
-                    <h2 className="text-3xl font-black text-gray-800 tracking-tighter">Checkout</h2>
+                    <h2 className="text-3xl font-black text-gray-800 tracking-tighter">{t('checkout.title')}</h2>
                 </div>
 
                 <div className="grid grid-cols-3 gap-6 items-start h-full pb-20">
                     {/* Left Column: Order Summary (Smaller) */}
                     <div className="col-span-1 bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 overflow-hidden h-full max-h-[calc(100vh-180px)]">
-                        <OrderSummary
-                            subtotal={getSubtotal()}
-                            serviceCharge={getServiceCharge()}
-                            total={getTotal()}
-                        />
+                        <OrderSummary />
                     </div>
 
                     {/* Right Column: Payment Methods (Larger) */}

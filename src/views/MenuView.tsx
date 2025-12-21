@@ -12,7 +12,7 @@ const MenuView = () => {
             <ProductGrid activeCat={activeCat} search={search} setSearch={setSearch} />
 
             {/* Cart Sidebar Component */}
-            <div className="h-full relative z-30 shrink-0 flex flex-col">
+            <div className="h-full relative z-sidebar shrink-0 flex flex-col">
                 <CartSidebar />
             </div>
         </div>

@@ -13,7 +13,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
         <Layout className="min-h-screen font-manrope">
             {/* Header is currently fixed or relative, we can wrap it if needed */}
-            <div className="bg-white border-b border-gray-100 sticky top-0 z-50">
+            <div className="bg-white border-b border-gray-100 sticky top-0 z-header">
                 <Header />
             </div>
 

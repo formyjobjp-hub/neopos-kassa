@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ZoneSidebar, TableGrid, GuestModal } from '@/features/tables';
 import { FluidPanel, ContentGrid } from '@/components/common';
@@ -7,10 +6,10 @@ import { useCartStore } from '@/features/cart';
 
 const HallView = () => {
     const navigate = useNavigate();
-    const { setTable, setGuests } = useCartStore();
+    const { setSelectedTableId } = useCartStore();
 
     // Zone State
-    const [activeZone, setActiveZone] = useState<string>('B');
+    const [activeZone, setActiveZone] = useState<'B' | 'M' | 'A' | 'VIP'>('B');
 
     // Guest Modal State
     const [selectedTable, setSelectedTable] = useState<any>(null);
@@ -41,12 +40,12 @@ const HallView = () => {
     return (
         <div className="flex h-full overflow-hidden">
             {/* Sidebar with correct prop: activeZone */}
-            <div className="shrink-0 h-full bg-surface z-20 relative border-r border-gray-100">
+            <div className="shrink-0 h-full bg-surface z-sidebar relative border-r border-gray-100">
                 <ZoneSidebar activeZone={activeZone} setActiveZone={setActiveZone} />
             </div>
 
             {/* Main Content */}
-            <FluidPanel className="p-6 bg-surface-light relative z-10 w-full">
+            <FluidPanel className="p-6 bg-surface-light relative z-base w-full">
                 <div className="max-w-[1920px] mx-auto w-full">
 
 

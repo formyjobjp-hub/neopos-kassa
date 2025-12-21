@@ -1,0 +1,131 @@
+{
+    "navigation": {
+        "hall": "Hall",
+        "order": "Order",
+        "menu": "Menu",
+        "waiting": "Waiting",
+        "checkout": "Checkout"
+    },
+    "buttons": {
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "back": "Back",
+        "next": "Next",
+        "finish": "Finish",
+        "print": "Print",
+        "logout": "Logout",
+        "addToCart": "Add to Cart",
+        "remove": "Remove",
+        "clear": "Clear",
+        "pay": "Pay"
+    },
+    "common": {
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort",
+        "settings": "Settings",
+        "logout": "Logout",
+        "language": "Language",
+        "theme": "Theme",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "total": "Total",
+        "subtotal": "Subtotal",
+        "guests": "Guests",
+        "quantity": "Quantity",
+        "price": "Price",
+        "discount": "Discount",
+        "tax": "Tax",
+        "serviceCharge": "Service Charge"
+    },
+    "roles": {
+        "waiter": "Waiter",
+        "kassir": "Cashier",
+        "admin": "Administrator",
+        "chef": "Chef"
+    },
+    "status": {
+        "active": "Active",
+        "inactive": "Inactive",
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
+    "hall": {
+        "title": "Hall",
+        "zones": {
+            "B": "Main Hall",
+            "M": "Middle Hall",
+            "A": "Hall A",
+            "VIP": "VIP Hall"
+        },
+        "table": "Table",
+        "tableNumber": "Table №",
+        "available": "Available",
+        "occupied": "Occupied",
+        "reserved": "Reserved",
+        "selectGuests": "Select number of guests",
+        "guestsCount": "Number of guests",
+        "startOrder": "Start Order"
+    },
+    "menu": {
+        "title": "Menu",
+        "categories": "Categories",
+        "categoryItems": {
+            "firstMeals": "First Meals",
+            "secondMeals": "Second Meals",
+            "drinks": "Drinks",
+            "desserts": "Desserts",
+            "coffee": "Coffee"
+        },
+        "searchPlaceholder": "Search dishes...",
+        "addToOrder": "Add to Order",
+        "noItems": "No items found",
+        "clearSearch": "Clear search",
+        "popular": "Popular",
+        "new": "New"
+    },
+    "cart": {
+        "title": "Cart",
+        "empty": "Cart is empty",
+        "items": "Items",
+        "subtotal": "Subtotal",
+        "serviceCharge": "Service Charge",
+        "total": "Total",
+        "checkout": "Proceed to Checkout",
+        "clearCart": "Clear Cart",
+        "itemAdded": "Item added",
+        "itemRemoved": "Item removed"
+    },
+    "checkout": {
+        "title": "Checkout",
+        "orderSummary": "Order Summary",
+        "paymentMethod": "Payment Method",
+        "selectPayment": "Select payment method",
+        "cash": "Cash",
+        "card": "Card",
+        "split": "Split Bill",
+        "online": "Online Payment",
+        "completePayment": "Complete Payment",
+        "paymentSuccess": "Payment successful!",
+        "paymentFailed": "Payment failed",
+        "tip": "Tip",
+        "addTip": "Add Tip"
+    },
+    "messages": {
+        "welcome": "Welcome!",
+        "selectTable": "Please select a table",
+        "orderPlaced": "Order placed",
+        "orderCancelled": "Order cancelled",
+        "confirmDelete": "Confirm deletion?",
+        "confirmClear": "Clear cart?",
+        "noConnection": "No internet connection",
+        "serverError": "Server error",
+        "sessionExpired": "Session expired, please login again"
+    }
+}

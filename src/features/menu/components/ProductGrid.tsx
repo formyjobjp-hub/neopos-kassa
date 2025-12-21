@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Plus, Utensils } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { useCartStore } from '@/features/cart';
 import { APP_CONFIG } from '@/config/constants';
 import { Product } from '../types';
@@ -11,6 +12,7 @@ interface ProductGridProps {
 }
 
 export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) => {
+    const { t } = useTranslation('common');
     const { addItem, selectedTableId } = useCartStore(); // Note: tableId renamed to selectedTableId in Interface, checking usage
 
     // Mock Data - In real app this comes from API
@@ -40,11 +42,11 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
     return (
         <main className="flex-1 flex flex-col min-w-0 bg-background relative">
             {/* Search Bar */}
-            <div className="p-4 border-b border-gray-100 flex items-center gap-4 sticky top-0 bg-white/90 backdrop-blur z-10">
+            <div className="p-card-sm border-b border-gray-100 flex items-center gap-4 sticky top-0 bg-white/90 backdrop-blur z-header">
                 <div className="relative flex-1 group">
                     <input
                         type="text"
-                        placeholder="Search for products..."
+                        placeholder={t('menu.searchPlaceholder')}
                         className="w-full bg-surface-gray-bg rounded-xl py-3 pl-12 pr-4 text-sm font-bold text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand/20 border-transparent focus:border-brand transition-all placeholder:text-gray-400"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
@@ -52,7 +54,7 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand transition-colors" />
                 </div>
                 <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Table:</span>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{t('hall.table')}:</span>
                     <span className="bg-brand/10 text-brand px-4 py-2 rounded-xl text-sm font-black shadow-sm border border-brand/20">{selectedTableId || '-'}</span>
                 </div>
             </div>
@@ -62,8 +64,8 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
                 {filteredProducts.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full opacity-50 pb-20">
                         <Utensils className="w-16 h-16 text-gray-300 mb-4" />
-                        <p className="font-bold text-gray-400 text-lg">No products found</p>
-                        <button onClick={() => setSearch('')} className="mt-4 text-brand font-bold hover:underline">Clear search</button>
+                        <p className="font-bold text-gray-400 text-lg">{t('menu.noItems')}</p>
+                        <button onClick={() => setSearch('')} className="mt-4 text-brand font-bold hover:underline">{t('menu.clearSearch')}</button>
                     </div>
                 ) : (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 pb-20">
@@ -91,7 +93,7 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
                                         className="mt-auto w-full py-3 rounded-xl border-2 border-gray-100 font-black text-xs uppercase tracking-widest text-gray-400 hover:bg-brand hover:text-white hover:border-brand transition-all flex items-center justify-center gap-2 active:scale-95 min-h-[44px]"
                                     >
                                         <Plus className="w-4 h-4" />
-                                        Add to Order
+                                        {t('menu.addToOrder')}
                                     </button>
                                 </div>
                             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Banknote, CreditCard, Smartphone, SmartphoneNfc, CheckCircle } from 'lucide-react';
 import { PaymentMethod } from '../types';
 
@@ -9,8 +10,9 @@ interface PaymentMethodsProps {
 }
 
 export const PaymentMethods = ({ selectedMethod, onSelect, onConfirm }: PaymentMethodsProps) => {
+    const { t } = useTranslation('common');
     const paymentMethods: PaymentMethod[] = [
-        { id: 'cash', name: 'Cash', icon: Banknote },
+        { id: 'cash', name: t('checkout.cash'), icon: Banknote },
         { id: 'uzcard', name: 'Uzcard', icon: CreditCard },
         { id: 'humo', name: 'Humo', icon: SmartphoneNfc },
         { id: 'payme', name: 'Payme/Click', icon: Smartphone }
@@ -18,7 +20,7 @@ export const PaymentMethods = ({ selectedMethod, onSelect, onConfirm }: PaymentM
 
     return (
         <div className="bg-white rounded-[40px] p-10 shadow-sm border border-gray-100 h-full flex flex-col">
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">Select Payment Method</h4>
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8 text-center">{t('checkout.selectPayment')}</h4>
 
             <div className="grid grid-cols-2 gap-6 mb-8">
                 {paymentMethods.map(method => (
@@ -42,7 +44,7 @@ export const PaymentMethods = ({ selectedMethod, onSelect, onConfirm }: PaymentM
                     onClick={onConfirm}
                 >
                     <CheckCircle className="w-8 h-8" />
-                    Confirm Payment
+                    {t('checkout.completePayment')}
                 </button>
             </div>
         </div>

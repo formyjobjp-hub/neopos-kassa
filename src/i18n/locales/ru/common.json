@@ -1,0 +1,131 @@
+{
+    "navigation": {
+        "hall": "Зал",
+        "order": "Заказ",
+        "menu": "Меню",
+        "waiting": "Ожидание",
+        "checkout": "Оплата"
+    },
+    "buttons": {
+        "confirm": "Подтвердить",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "delete": "Удалить",
+        "edit": "Редактировать",
+        "add": "Добавить",
+        "back": "Назад",
+        "next": "Далее",
+        "finish": "Завершить",
+        "print": "Печать",
+        "logout": "Выход",
+        "addToCart": "В корзину",
+        "remove": "Удалить",
+        "clear": "Очистить",
+        "pay": "Оплатить"
+    },
+    "common": {
+        "search": "Поиск",
+        "filter": "Фильтр",
+        "sort": "Сортировка",
+        "settings": "Настройки",
+        "logout": "Выход",
+        "language": "Язык",
+        "theme": "Тема",
+        "loading": "Загрузка...",
+        "error": "Ошибка",
+        "success": "Успешно",
+        "total": "Итого",
+        "subtotal": "Промежуточный итог",
+        "guests": "Гости",
+        "quantity": "Количество",
+        "price": "Цена",
+        "discount": "Скидка",
+        "tax": "Налог",
+        "serviceCharge": "Сервисный сбор"
+    },
+    "roles": {
+        "waiter": "Официант",
+        "kassir": "Кассир",
+        "admin": "Администратор",
+        "chef": "Повар"
+    },
+    "status": {
+        "active": "Активный",
+        "inactive": "Неактивный",
+        "pending": "Ожидание",
+        "completed": "Завершено",
+        "cancelled": "Отменено"
+    },
+    "hall": {
+        "title": "Зал",
+        "zones": {
+            "B": "Основной зал",
+            "M": "Средний зал",
+            "A": "Зал A",
+            "VIP": "VIP зал"
+        },
+        "table": "Стол",
+        "tableNumber": "Стол №",
+        "available": "Свободно",
+        "occupied": "Занято",
+        "reserved": "Забронировано",
+        "selectGuests": "Выберите количество гостей",
+        "guestsCount": "Количество гостей",
+        "startOrder": "Начать заказ"
+    },
+    "menu": {
+        "title": "Меню",
+        "categories": "Категории",
+        "categoryItems": {
+            "firstMeals": "Первые блюда",
+            "secondMeals": "Вторые блюда",
+            "drinks": "Напитки",
+            "desserts": "Десерты",
+            "coffee": "Кофе"
+        },
+        "searchPlaceholder": "Поиск блюд...",
+        "addToOrder": "Добавить в заказ",
+        "noItems": "Товары не найдены",
+        "clearSearch": "Очистить поиск",
+        "popular": "Популярное",
+        "new": "Новинки"
+    },
+    "cart": {
+        "title": "Корзина",
+        "empty": "Корзина пуста",
+        "items": "Товары",
+        "subtotal": "Промежуточный итог",
+        "serviceCharge": "Сервисный сбор",
+        "total": "Итого",
+        "checkout": "Перейти к оплате",
+        "clearCart": "Очистить корзину",
+        "itemAdded": "Товар добавлен",
+        "itemRemoved": "Товар удален"
+    },
+    "checkout": {
+        "title": "Оплата",
+        "orderSummary": "Итоги заказа",
+        "paymentMethod": "Способ оплаты",
+        "selectPayment": "Выберите способ оплаты",
+        "cash": "Наличные",
+        "card": "Карта",
+        "split": "Разделить счет",
+        "online": "Онлайн оплата",
+        "completePayment": "Завершить оплату",
+        "paymentSuccess": "Оплата прошла успешно!",
+        "paymentFailed": "Ошибка оплаты",
+        "tip": "Чаевые",
+        "addTip": "Добавить чаевые"
+    },
+    "messages": {
+        "welcome": "Добро пожаловать!",
+        "selectTable": "Пожалуйста, выберите стол",
+        "orderPlaced": "Заказ принят",
+        "orderCancelled": "Заказ отменен",
+        "confirmDelete": "Подтвердить удаление?",
+        "confirmClear": "Очистить корзину?",
+        "noConnection": "Нет подключения к интернету",
+        "serverError": "Ошибка сервера",
+        "sessionExpired": "Сессия истекла, войдите снова"
+    }
+}
