@@ -1,6 +1,9 @@
 export interface Table {
-    id: string;
-    number: string;
-    status: 'empty' | 'waiting' | 'occupied';
+    id: number;
+    name: string;
+    status: 'available' | 'occupied' | 'reserved';
+    seats: number;
+    type: 'standard' | 'booth' | 'vip';
     price?: number;
+    time?: string;
 }

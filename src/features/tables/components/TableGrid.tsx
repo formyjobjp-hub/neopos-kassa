@@ -1,20 +1,24 @@
 import React from 'react';
 import { Table } from '../types';
 import { Users } from 'lucide-react';
+import { useTables } from '../api/useTables';
 
 interface TableGridProps {
     onTableClick: (table: Table) => void;
 }
 
 export const TableGrid = ({ onTableClick }: TableGridProps) => {
-    const tables: Table[] = [
-        { id: 1, name: 'T-01', status: 'available', seats: 4, type: 'standard' },
-        { id: 2, name: 'T-02', status: 'occupied', seats: 6, type: 'booth', price: 150000, time: '12:30' },
-        { id: 3, name: 'T-03', status: 'reserved', seats: 2, type: 'standard' },
-        { id: 4, name: 'T-04', status: 'available', seats: 8, type: 'vip' },
-        { id: 5, name: 'T-05', status: 'available', seats: 4, type: 'standard' },
-        { id: 6, name: 'T-06', status: 'occupied', seats: 4, type: 'standard', price: 85000, time: '13:45' },
-    ];
+    const { tables, isLoading } = useTables();
+
+    if (isLoading) {
+        return (
+            <>
+                {[1, 2, 3, 4, 5, 6].map(i => (
+                    <div key={i} className="aspect-square rounded-[32px] bg-gray-100 animate-pulse"></div>
+                ))}
+            </>
+        );
+    }
 
     return (
         <>

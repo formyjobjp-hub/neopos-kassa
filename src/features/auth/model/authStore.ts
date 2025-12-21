@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { AuthState, User, UserRole } from '../types';
+import { AuthService } from '../api/authService';
 
 export const useAuthStore = create<AuthState>()(
     persist(
@@ -9,45 +10,14 @@ export const useAuthStore = create<AuthState>()(
             user: null,
 
             login: async (pin: string) => {
-                // Mock login - Replace with real API call
-                const mockUsers: Record<string, User> = {
-                    '5460': {
-                        id: 1,
-                        first_name: 'Kassir',
-                        last_name: 'User',
-                        role: 'cashier',
-                        permissions: ['checkout', 'view_orders']
-                    },
-                    '1234': {
-                        id: 2,
-                        first_name: 'Ofitsiant',
-                        last_name: 'User',
-                        role: 'waiter',
-                        permissions: ['take_orders', 'view_menu']
-                    },
-                    '9999': {
-                        id: 3,
-                        first_name: 'Admin',
-                        last_name: 'User',
-                        role: 'admin',
-                        permissions: ['*'] // All permissions
-                    },
-                    '7777': {
-                        id: 4,
-                        first_name: 'Oshpaz',
-                        last_name: 'User',
-                        role: 'chef',
-                        permissions: ['view_kitchen', 'update_order_status']
-                    },
-                };
+                const { success, user, token } = await AuthService.login(pin);
 
-                const user = mockUsers[pin];
-                if (user) {
+                if (success && user && token) {
                     set({
                         isAuthenticated: true,
                         user,
                     });
-                    localStorage.setItem('auth_token', `mock_token_${user.id}`);
+                    localStorage.setItem('auth_token', token);
                     return true;
                 }
                 return false;

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Search, Plus, Utensils } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Search, Plus, Utensils, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useCartStore } from '@/features/cart';
 import { APP_CONFIG } from '@/config/constants';
-import { Product } from '../types';
+import { useProducts } from '@/features/menu/api/useMenu';
 
 interface ProductGridProps {
     activeCat: number;
@@ -13,25 +13,10 @@ interface ProductGridProps {
 
 export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) => {
     const { t } = useTranslation('common');
-    const { addItem, selectedTableId } = useCartStore(); // Note: tableId renamed to selectedTableId in Interface, checking usage
+    const { addItem, selectedTableId } = useCartStore();
 
-    // Mock Data - In real app this comes from API
-    const products: Product[] = [
-        { id: 101, name: 'Coca Cola 0.5L', price: 12000, category: 3, image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=400&auto=format&fit=crop' },
-        { id: 102, name: 'Ice Tea Lemon', price: 40000, category: 3, image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=400&auto=format&fit=crop' },
-        { id: 103, name: 'Margherita Pizza', price: 85000, category: 2, image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=400&auto=format&fit=crop' },
-        { id: 104, name: 'Lentil Soup', price: 25000, category: 1, image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=400&auto=format&fit=crop' },
-        { id: 105, name: 'Cheesecake', price: 45000, category: 4, image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=400&auto=format&fit=crop' },
-        { id: 106, name: 'Cappuccino', price: 28000, category: 5, image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=400&auto=format&fit=crop' },
-        { id: 107, name: 'Fanta 0.5L', price: 12000, category: 3, image: 'https://images.unsplash.com/photo-1624517452488-04867289c2ca?q=80&w=400&auto=format&fit=crop' },
-        { id: 108, name: 'Plov Special', price: 65000, category: 2, image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=400&auto=format&fit=crop' },
-    ];
-
-    const filteredProducts = products.filter(p => {
-        const matchesCat = p.category === activeCat;
-        const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
-        return matchesCat && matchesSearch;
-    });
+    // Use TanStack Query hook
+    const { products, isLoading } = useProducts(activeCat, search);
 
     const formatPrice = (p: number) =>
         new Intl.NumberFormat(APP_CONFIG.CURRENCY.LOCALE, {
@@ -61,7 +46,13 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
 
             {/* Products Grid */}
             <div className="flex-1 overflow-y-auto p-6 scroll-smooth">
-                {filteredProducts.length === 0 ? (
+                {isLoading ? (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 pb-20">
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                            <div key={i} className="aspect-[4/3] bg-gray-100 animate-pulse rounded-2xl"></div>
+                        ))}
+                    </div>
+                ) : products.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full opacity-50 pb-20">
                         <Utensils className="w-16 h-16 text-gray-300 mb-4" />
                         <p className="font-bold text-gray-400 text-lg">{t('menu.noItems')}</p>
@@ -69,7 +60,7 @@ export const ProductGrid = ({ activeCat, search, setSearch }: ProductGridProps) 
                     </div>
                 ) : (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 pb-20">
-                        {filteredProducts.map(product => (
+                        {products.map(product => (
                             <div
                                 key={product.id}
                                 className="flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300"

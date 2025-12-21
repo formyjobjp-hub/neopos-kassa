@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Banknote, CreditCard, Smartphone, SmartphoneNfc, CheckCircle } from 'lucide-react';
-import { PaymentMethod } from '../types';
+import { Banknote, CreditCard, Smartphone, SmartphoneNfc, CheckCircle, LucideIcon } from 'lucide-react';
+import { useCheckout } from '../api/useCheckout';
 
 interface PaymentMethodsProps {
     selectedMethod: string | null;
@@ -9,14 +9,36 @@ interface PaymentMethodsProps {
     onConfirm: () => void;
 }
 
+const iconMap: Record<string, LucideIcon> = {
+    'Banknote': Banknote,
+    'CreditCard': CreditCard,
+    'SmartphoneNfc': SmartphoneNfc,
+    'Smartphone': Smartphone
+};
+
 export const PaymentMethods = ({ selectedMethod, onSelect, onConfirm }: PaymentMethodsProps) => {
     const { t } = useTranslation('common');
-    const paymentMethods: PaymentMethod[] = [
-        { id: 'cash', name: t('checkout.cash'), icon: Banknote },
-        { id: 'uzcard', name: 'Uzcard', icon: CreditCard },
-        { id: 'humo', name: 'Humo', icon: SmartphoneNfc },
-        { id: 'payme', name: 'Payme/Click', icon: Smartphone }
-    ];
+    const { paymentMethods: methods, isLoadingMethods } = useCheckout();
+
+    // Transform API/Mock data to component structure
+    const paymentMethods = methods.map(m => ({
+        id: m.id,
+        name: m.nameKey.includes('.') ? t(m.nameKey) : m.nameKey,
+        icon: iconMap[m.iconType] || Banknote
+    }));
+
+    if (isLoadingMethods) {
+        return (
+            <div className="bg-white rounded-[40px] p-10 shadow-sm border border-gray-100 h-full flex flex-col animate-pulse">
+                <div className="h-4 bg-gray-100 w-1/3 mx-auto mb-8 rounded"></div>
+                <div className="grid grid-cols-2 gap-6 mb-8">
+                    {[1, 2, 3, 4].map(i => (
+                        <div key={i} className="h-32 bg-gray-100 rounded-[32px]"></div>
+                    ))}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-white rounded-[40px] p-10 shadow-sm border border-gray-100 h-full flex flex-col">

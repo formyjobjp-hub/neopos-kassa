@@ -120,6 +120,32 @@ Barcha backend bilan aloqalar markazlashtirilgan API service orqali amalga oshir
 -   **Error Handling**: API client avtomatik ravishda 401, 403, 500 xatolarni boshqaradi
 -   **Auth Token**: Har bir so'rovga avtomatik ravishda token qo'shiladi
 
+### Mock Data Strategiyasi (Hybrid Mode)
+Development jarayonini tezlashtirish va Backend tayyor bo'lmaganda ishlash uchun "Feature Flag" dan foydalanamiz.
+
+1.  **Markazlashgan Mock Data**: Barcha soxta ma'lumotlar `src/services/mockData.ts` da saqlanadi.
+2.  **Toggle Flag**: `src/config/constants.ts` dagi `APP_CONFIG.FEATURES.ENABLE_MOCK` orqali boshqariladi.
+3.  **Service Implementatsiyasi**:
+
+```typescript
+// features/tables/api/tableService.ts
+export const TableService = {
+  getAll: async (): Promise<Table[]> => {
+    // 1. Mock Mode tekshirish
+    if (APP_CONFIG.FEATURES.ENABLE_MOCK) {
+      await delay(300); // Tarmoqni simulyatsiya qilish
+      return MOCK_TABLES; 
+    }
+
+    // 2. Real API Mode
+    const { data } = await apiClient.get('/tables');
+    return data;
+  }
+};
+```
+
+Bu usul bizga istalgan vaqtda ".env" faylidagi `VITE_ENABLE_MOCK=false` qilish orqali Real API ga o'tish imkonini beradi. Komponentlar hech narsani sezmaydi.
+
 ### Misol
 ```typescript
 // features/menu/api/menuApi.ts
