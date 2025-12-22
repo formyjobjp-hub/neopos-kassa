@@ -35,27 +35,25 @@ export const MOCK_PRODUCTS: Product[] = [
 ];
 
 export const MOCK_TABLES: Table[] = [
-    // Zone B - 4 seats
-    { id: 1, name: 'B-01', status: 'available', seats: 4, type: 'standard', zone: 'B' },
-    { id: 2, name: 'B-02', status: 'occupied', seats: 4, type: 'standard', zone: 'B', price: 120000, time: '12:30' },
-    { id: 3, name: 'B-03', status: 'reserved', seats: 4, type: 'standard', zone: 'B' },
-    { id: 4, name: 'B-04', status: 'available', seats: 4, type: 'standard', zone: 'B' },
-    { id: 5, name: 'B-05', status: 'available', seats: 4, type: 'standard', zone: 'B' },
-    { id: 6, name: 'B-06', status: 'occupied', seats: 4, type: 'standard', zone: 'B', price: 85000, time: '13:45' },
+    // Zone B - 4 seats / 6 seats
+    { id: 1, name: '1', status: 'available', seats: 0, capacity: 4, type: 'standard', zone: 'B' },
+    { id: 2, name: '2', status: 'occupied', seats: 4, capacity: 4, type: 'standard', zone: 'B', price: 120000, time: '12:30' },
+    { id: 3, name: '3', status: 'reserved', seats: 0, capacity: 6, type: 'standard', zone: 'B', time: '27.12.2025 19:00', customerName: 'Ali Valiyev', phone: '+998 91 123 45 67' },
+    { id: 4, name: '4', status: 'available', seats: 0, capacity: 4, type: 'standard', zone: 'B' },
+    { id: 5, name: '5', status: 'available', seats: 0, capacity: 4, type: 'standard', zone: 'B' },
 
-    // Zone C - 4 seats
-    { id: 7, name: 'C-01', status: 'available', seats: 4, type: 'standard', zone: 'C' },
-    { id: 8, name: 'C-02', status: 'available', seats: 4, type: 'standard', zone: 'C' },
-    { id: 9, name: 'C-03', status: 'occupied', seats: 4, type: 'standard', zone: 'C', price: 45000 },
+    // Zone C
+    { id: 7, name: '1', status: 'available', seats: 0, capacity: 4, type: 'standard', zone: 'C' },
+    { id: 8, name: '2', status: 'available', seats: 0, capacity: 4, type: 'standard', zone: 'C' },
+    { id: 9, name: '3', status: 'occupied', seats: 3, capacity: 4, type: 'standard', zone: 'C', price: 45000 },
 
-    // Zone M - 6 seats
-    { id: 10, name: 'M-01', status: 'available', seats: 6, type: 'booth', zone: 'M' },
-    { id: 11, name: 'M-02', status: 'occupied', seats: 6, type: 'booth', zone: 'M', price: 250000 },
-    { id: 12, name: 'M-03', status: 'reserved', seats: 6, type: 'booth', zone: 'M' },
+    // Zone M
+    { id: 10, name: '1', status: 'available', seats: 0, capacity: 6, type: 'booth', zone: 'M' },
+    { id: 11, name: '2', status: 'occupied', seats: 5, capacity: 6, type: 'booth', zone: 'M', price: 250000 },
 
-    // Zone VIP - 6 seats
-    { id: 13, name: 'V-01', status: 'occupied', seats: 6, type: 'vip', zone: 'VIP', price: 450000 },
-    { id: 14, name: 'V-02', status: 'available', seats: 6, type: 'vip', zone: 'VIP' },
+    // Zone VIP
+    { id: 13, name: '1', status: 'occupied', seats: 4, capacity: 6, type: 'vip', zone: 'VIP', price: 450000 },
+    { id: 14, name: '2', status: 'available', seats: 0, capacity: 6, type: 'vip', zone: 'VIP' },
 ];
 
 export const MOCK_PAYMENT_METHODS: PaymentMethodData[] = [

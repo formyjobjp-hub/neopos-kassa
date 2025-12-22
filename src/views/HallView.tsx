@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ZoneSidebar, TableGrid, GuestModal, Table } from '@/features/tables';
-import { FluidPanel, ContentGrid } from '@/components/common';
+import { ZoneSidebar, TableGrid, GuestModal, Table, ActiveOrdersSidebar } from '@/features/tables';
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/features/cart';
+
 
 const HallView = () => {
     const navigate = useNavigate();
@@ -18,11 +18,9 @@ const HallView = () => {
     // Handlers
     const handleTableClick = (table: Table) => {
         if (table.status === 'occupied') {
-            // If checking out existing table
             setTable(String(table.id));
             navigate('/menu');
         } else {
-            // New table -> Open Modal
             setSelectedTable(table);
             setGuestCount(1);
         }
@@ -37,23 +35,26 @@ const HallView = () => {
         }
     };
 
+
+
     return (
-        <div className="flex flex-col md:flex-row h-full overflow-hidden">
-            {/* Sidebar with correct prop: activeZone */}
-            <ZoneSidebar activeZone={activeZone} setActiveZone={setActiveZone} />
+        <div className="flex h-screen bg-background overflow-hidden">
+            <div className="flex flex-1 overflow-hidden">
+                {/* Zone Sidebar (Left) - Unchanged layout as requested */}
+                <ZoneSidebar activeZone={activeZone} setActiveZone={setActiveZone} />
 
-            {/* Main Content */}
-            <FluidPanel className="p-6 bg-surface-light relative z-base w-full">
-                <div className="max-w-[1920px] mx-auto w-full">
-
-
-                    <ContentGrid>
+                {/* Main Table Grid (Center) */}
+                <main className="flex-1 overflow-y-auto bg-background">
+                    <div className="max-w-[1400px] mx-auto">
                         <TableGrid activeZone={activeZone} onTableClick={handleTableClick} />
-                    </ContentGrid>
-                </div>
-            </FluidPanel>
+                    </div>
+                </main>
 
-            {/* GuestModal only renders if selectedTable is truthy */}
+                {/* Active Orders sidebar (Right) */}
+                <ActiveOrdersSidebar />
+            </div>
+
+            {/* GuestModal */}
             {selectedTable && (
                 <GuestModal
                     guestCount={guestCount}
