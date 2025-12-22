@@ -1,10 +1,11 @@
 {
     "navigation": {
-        "hall": "Зал",
-        "order": "Заказ",
+        "hall": "Новый заказ",
+        "order": "Меню",
         "menu": "Меню",
         "waiting": "Ожидание",
-        "checkout": "Оплата"
+        "checkout": "Оплата",
+        "settings": "Настройки"
     },
     "buttons": {
         "confirm": "Подтвердить",
@@ -43,79 +44,12 @@
         "tax": "Налог",
         "serviceCharge": "Сервисный сбор"
     },
-    "roles": {
-        "waiter": "Официант",
-        "kassir": "Кассир",
-        "admin": "Администратор",
-        "chef": "Повар"
-    },
     "status": {
         "active": "Активный",
         "inactive": "Неактивный",
         "pending": "Ожидание",
         "completed": "Завершено",
         "cancelled": "Отменено"
-    },
-    "hall": {
-        "title": "Зал",
-        "zones": {
-            "B": "Основной зал",
-            "M": "Средний зал",
-            "A": "Зал A",
-            "VIP": "VIP зал"
-        },
-        "table": "Стол",
-        "tableNumber": "Стол №",
-        "available": "Свободно",
-        "occupied": "Занято",
-        "reserved": "Забронировано",
-        "selectGuests": "Выберите количество гостей",
-        "guestsCount": "Количество гостей",
-        "startOrder": "Начать заказ"
-    },
-    "menu": {
-        "title": "Меню",
-        "categories": "Категории",
-        "categoryItems": {
-            "firstMeals": "Первые блюда",
-            "secondMeals": "Вторые блюда",
-            "drinks": "Напитки",
-            "desserts": "Десерты",
-            "coffee": "Кофе"
-        },
-        "searchPlaceholder": "Поиск блюд...",
-        "addToOrder": "Добавить в заказ",
-        "noItems": "Товары не найдены",
-        "clearSearch": "Очистить поиск",
-        "popular": "Популярное",
-        "new": "Новинки"
-    },
-    "cart": {
-        "title": "Корзина",
-        "empty": "Корзина пуста",
-        "items": "Товары",
-        "subtotal": "Промежуточный итог",
-        "serviceCharge": "Сервисный сбор",
-        "total": "Итого",
-        "checkout": "Перейти к оплате",
-        "clearCart": "Очистить корзину",
-        "itemAdded": "Товар добавлен",
-        "itemRemoved": "Товар удален"
-    },
-    "checkout": {
-        "title": "Оплата",
-        "orderSummary": "Итоги заказа",
-        "paymentMethod": "Способ оплаты",
-        "selectPayment": "Выберите способ оплаты",
-        "cash": "Наличные",
-        "card": "Карта",
-        "split": "Разделить счет",
-        "online": "Онлайн оплата",
-        "completePayment": "Завершить оплату",
-        "paymentSuccess": "Оплата прошла успешно!",
-        "paymentFailed": "Ошибка оплаты",
-        "tip": "Чаевые",
-        "addTip": "Добавить чаевые"
     },
     "messages": {
         "welcome": "Добро пожаловать!",

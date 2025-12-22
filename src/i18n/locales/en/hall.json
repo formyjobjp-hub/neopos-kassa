@@ -1,0 +1,20 @@
+{
+    "hall": {
+        "title": "Hall",
+        "zones": {
+            "B": "Main Hall",
+            "M": "Middle Hall",
+            "A": "Hall A",
+            "VIP": "VIP Hall"
+        },
+        "table": "Table",
+        "tableNumber": "Table №",
+        "available": "Available",
+        "occupied": "Occupied",
+        "reserved": "Reserved",
+        "selectGuests": "Select number of guests",
+        "guestsCount": "Number of guests",
+        "startOrder": "Start Order",
+        "seats": "{{count}} seats"
+    }
+}

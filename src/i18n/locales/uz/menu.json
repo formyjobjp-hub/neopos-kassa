@@ -1,0 +1,19 @@
+{
+    "menu": {
+        "title": "Menyu",
+        "categories": "Kategoriyalar",
+        "categoryItems": {
+            "firstMeals": "Birinchi taomlar",
+            "secondMeals": "Ikkinchi taomlar",
+            "drinks": "Ichimliklar",
+            "desserts": "Desertlar",
+            "coffee": "Qahva"
+        },
+        "searchPlaceholder": "Taom qidirish...",
+        "addToOrder": "Buyurtmaga qo'shish",
+        "noItems": "Mahsulotlar topilmadi",
+        "clearSearch": "Qidiruvni tozalash",
+        "popular": "Ommabop",
+        "new": "Yangi"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "menu": {
+        "title": "Меню",
+        "categories": "Категории",
+        "categoryItems": {
+            "firstMeals": "Первые блюда",
+            "secondMeals": "Вторые блюда",
+            "drinks": "Напитки",
+            "desserts": "Десерты",
+            "coffee": "Кофе"
+        },
+        "searchPlaceholder": "Поиск блюд...",
+        "addToOrder": "Добавить в заказ",
+        "noItems": "Товары не найдены",
+        "clearSearch": "Очистить поиск",
+        "popular": "Популярное",
+        "new": "Новинки"
+    }
+}

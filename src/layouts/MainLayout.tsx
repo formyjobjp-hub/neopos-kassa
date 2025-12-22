@@ -11,13 +11,13 @@ interface MainLayoutProps {
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     return (
-        <Layout className="min-h-screen font-manrope">
+        <Layout className="h-screen md:h-[100dvh] flex flex-col font-manrope overflow-hidden">
             {/* Header is currently fixed or relative, we can wrap it if needed */}
-            <div className="bg-white border-b border-gray-100 sticky top-0 z-header">
+            <div className="shrink-0 bg-white border-b border-gray-100 sticky top-0 z-header">
                 <Header />
             </div>
 
-            <Content className="h-[calc(100vh-64px)]">
+            <Content className="flex-1 overflow-hidden">
                 <PageContainer className="bg-background">
                     {children}
                 </PageContainer>

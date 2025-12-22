@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 export const CartSidebar = () => {
     const navigate = useNavigate();
-    const { t } = useTranslation('common');
+    const { t } = useTranslation('cart');
     const {
         items, guestCount, getSubtotal, getServiceCharge, getTotal,
         updateQuantity, removeItem
@@ -19,12 +19,12 @@ export const CartSidebar = () => {
         }).format(p) + ' ' + APP_CONFIG.CURRENCY.SYMBOL;
 
     return (
-        <aside className="w-[450px] border-l border-gray-100 flex flex-col bg-white h-full relative z-sidebar">
+        <aside className="w-full h-full flex flex-col bg-white relative">
             <div className="p-card border-b border-gray-50">
                 <h3 className="text-heading font-black text-gray-800 tracking-tighter mb-1">{t('cart.title')}</h3>
                 {guestCount > 0 && (
                     <div className="flex items-center gap-2">
-                        <span className="text-label text-gray-400 uppercase tracking-wider">{t('common.guests')}:</span>
+                        <span className="text-label text-gray-400 uppercase tracking-wider">{t('cart.guests')}:</span>
                         <span className="bg-brand/10 px-2 py-0.5 rounded-lg text-caption font-bold text-brand">{guestCount}</span>
                     </div>
                 )}

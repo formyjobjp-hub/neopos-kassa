@@ -17,7 +17,7 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 export const PaymentMethods = ({ selectedMethod, onSelect, onConfirm }: PaymentMethodsProps) => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation(['checkout', 'common']);
     const { paymentMethods: methods, isLoadingMethods } = useCheckout();
 
     // Transform API/Mock data to component structure

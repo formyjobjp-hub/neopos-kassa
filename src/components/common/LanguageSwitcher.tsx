@@ -4,10 +4,10 @@ import { Globe } from 'lucide-react';
 
 import i18n from '@/i18n/config'; // Direct access to the singleton
 
-export const LanguageSwitcher = () => {
-    const { t } = useTranslation(); // Just for re-render
+export const LanguageSwitcher = ({ variant = 'dropdown' }: { variant?: 'dropdown' | 'inline' }) => {
+    const { t } = useTranslation('common');
     const [isOpen, setIsOpen] = React.useState(false);
-    const [, forceUpdate] = React.useReducer(x => x + 1, 0); // Force re-render trick
+    const [, forceUpdate] = React.useReducer(x => x + 1, 0);
 
     const languages = [
         { code: 'uz', name: "O'zbekcha", flag: '🇺🇿' },
@@ -18,13 +18,33 @@ export const LanguageSwitcher = () => {
     const currentLang = languages.find(lang => i18n.language.startsWith(lang.code)) || languages[0];
 
     const changeLanguage = async (langCode: string) => {
-        console.log('🌍 Changing language to:', langCode);
         await i18n.changeLanguage(langCode);
         localStorage.setItem('i18nextLng', langCode);
-        console.log('✅ Language changed successfully');
         setIsOpen(false);
-        forceUpdate(); // Force component tree to re-render
+        forceUpdate();
     };
+
+    if (variant === 'inline') {
+        return (
+            <div className="flex gap-2">
+                {languages.map((lang) => (
+                    <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className={`
+                            flex-1 py-3 rounded-2xl border-2 transition-all flex flex-col items-center justify-center gap-1
+                            ${i18n.language.startsWith(lang.code)
+                                ? 'border-brand bg-brand text-white shadow-md'
+                                : 'border-gray-100 bg-white text-gray-400 hover:border-brand/20'}
+                        `}
+                    >
+                        <span className="text-xl">{lang.flag}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">{lang.code}</span>
+                    </button>
+                ))}
+            </div>
+        );
+    }
 
     return (
         <div className="relative">
@@ -38,25 +58,18 @@ export const LanguageSwitcher = () => {
 
             {isOpen && (
                 <>
-                    {/* Backdrop */}
-                    <div
-                        className="fixed inset-0 z-[100]"
-                        onClick={() => setIsOpen(false)}
-                    />
-
-                    {/* Dropdown - MUST be above backdrop */}
+                    <div className="fixed inset-0 z-[100]" onClick={() => setIsOpen(false)} />
                     <div className="absolute right-0 top-12 w-48 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-[101]">
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    console.log('🖱️ Button clicked:', lang.code);
                                     changeLanguage(lang.code);
                                 }}
                                 className={`
                                     w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors flex items-center gap-3
-                                    ${i18n.language === lang.code ? 'bg-brand/5 text-brand font-bold' : 'text-gray-700'}
+                                    ${i18n.language.startsWith(lang.code) ? 'bg-brand/5 text-brand font-bold' : 'text-gray-700'}
                                 `}
                             >
                                 <span className="text-heading-sm">{lang.flag}</span>

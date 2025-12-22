@@ -1,0 +1,17 @@
+{
+    "checkout": {
+        "title": "To'lov",
+        "orderSummary": "Buyurtma xulosasi",
+        "paymentMethod": "To'lov usuli",
+        "selectPayment": "To'lov usulini tanlang",
+        "cash": "Naqd pul",
+        "card": "Karta",
+        "split": "Bo'lib to'lash",
+        "online": "Onlayn to'lov",
+        "completePayment": "To'lovni yakunlash",
+        "paymentSuccess": "To'lov muvaffaqiyatli amalga oshirildi!",
+        "paymentFailed": "To'lov amalga oshmadi",
+        "tip": "Choy puli",
+        "addTip": "Choy puli qo'shish"
+    }
+}

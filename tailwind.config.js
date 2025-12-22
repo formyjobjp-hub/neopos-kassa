@@ -23,21 +23,21 @@ export default {
                 surface: {
                     light: '#FFFFFF', // White
                     DEFAULT: '#FAFAF9', // Stone 50 (Warm background)
-                    dark: '#1C1917', // Stone 900 (Warm Black)
-                    gray: '#78716C', // Stone 500 (Warm Gray Text)
+                    dark: '#000000', // Black
+                    gray: '#000000', // Black (Previously Stone 500)
                     'gray-bg': '#F5F5F4' // Stone 100
                 },
                 gray: {
                     50: '#FAFAF9',
                     100: '#F5F5F4',
                     200: '#E7E5E4',
-                    300: '#D6D3D1',
-                    400: '#A8A29E',
-                    500: '#78716C',
-                    600: '#57534E',
-                    700: '#44403C',
-                    800: '#292524',
-                    900: '#1C1917',
+                    300: '#57534E', // Darker (Stone 600)
+                    400: '#292524', // Darker (Stone 800)
+                    500: '#1C1917', // Darker (Stone 900)
+                    600: '#000000', // Black
+                    700: '#000000', // Black
+                    800: '#000000', // Black
+                    900: '#000000', // Black
                 }
             },
             spacing: {
@@ -96,10 +96,14 @@ export default {
             }
         },
         screens: {
-            'tablet': '640px',
-            'laptop': '1024px',
-            'desktop': '1280px',
-            'fhd': '1920px',
+            'sm': '640px',
+            'md': '768px', // Added back missing md
+            'lg': '1024px', // Added back missing lg
+            'xl': '1280px', // Added back missing xl
+            '2xl': '1536px',
+            'tablet': '640px', // Legacy support
+            'laptop': '1024px', // Legacy support
+            'desktop': '1280px', // Legacy support
         },
     },
     plugins: [],

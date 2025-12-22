@@ -9,7 +9,7 @@ interface GuestModalProps {
 }
 
 export const GuestModal = ({ guestCount, setGuestCount, onConfirm, onCancel }: GuestModalProps) => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation(['common', 'hall']);
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-modal flex items-center justify-center p-4">

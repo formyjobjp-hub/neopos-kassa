@@ -35,12 +35,27 @@ export const MOCK_PRODUCTS: Product[] = [
 ];
 
 export const MOCK_TABLES: Table[] = [
-    { id: 1, name: 'T-01', status: 'available', seats: 4, type: 'standard' },
-    { id: 2, name: 'T-02', status: 'occupied', seats: 6, type: 'booth', price: 150000, time: '12:30' },
-    { id: 3, name: 'T-03', status: 'reserved', seats: 2, type: 'standard' },
-    { id: 4, name: 'T-04', status: 'available', seats: 8, type: 'vip' },
-    { id: 5, name: 'T-05', status: 'available', seats: 4, type: 'standard' },
-    { id: 6, name: 'T-06', status: 'occupied', seats: 4, type: 'standard', price: 85000, time: '13:45' },
+    // Zone B - 4 seats
+    { id: 1, name: 'B-01', status: 'available', seats: 4, type: 'standard', zone: 'B' },
+    { id: 2, name: 'B-02', status: 'occupied', seats: 4, type: 'standard', zone: 'B', price: 120000, time: '12:30' },
+    { id: 3, name: 'B-03', status: 'reserved', seats: 4, type: 'standard', zone: 'B' },
+    { id: 4, name: 'B-04', status: 'available', seats: 4, type: 'standard', zone: 'B' },
+    { id: 5, name: 'B-05', status: 'available', seats: 4, type: 'standard', zone: 'B' },
+    { id: 6, name: 'B-06', status: 'occupied', seats: 4, type: 'standard', zone: 'B', price: 85000, time: '13:45' },
+
+    // Zone C - 4 seats
+    { id: 7, name: 'C-01', status: 'available', seats: 4, type: 'standard', zone: 'C' },
+    { id: 8, name: 'C-02', status: 'available', seats: 4, type: 'standard', zone: 'C' },
+    { id: 9, name: 'C-03', status: 'occupied', seats: 4, type: 'standard', zone: 'C', price: 45000 },
+
+    // Zone M - 6 seats
+    { id: 10, name: 'M-01', status: 'available', seats: 6, type: 'booth', zone: 'M' },
+    { id: 11, name: 'M-02', status: 'occupied', seats: 6, type: 'booth', zone: 'M', price: 250000 },
+    { id: 12, name: 'M-03', status: 'reserved', seats: 6, type: 'booth', zone: 'M' },
+
+    // Zone VIP - 6 seats
+    { id: 13, name: 'V-01', status: 'occupied', seats: 6, type: 'vip', zone: 'VIP', price: 450000 },
+    { id: 14, name: 'V-02', status: 'available', seats: 6, type: 'vip', zone: 'VIP' },
 ];
 
 export const MOCK_PAYMENT_METHODS: PaymentMethodData[] = [

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useAuthStore } from '../store/auth';
+import { useTranslation } from 'react-i18next';
+import { useAuthStore } from '@/features/auth';
 import { Delete, ScanLine, Smartphone, Eye, EyeOff, Moon, Globe, Infinity } from 'lucide-react';
 import { Button } from 'antd';
 import { toast } from 'react-hot-toast';
@@ -8,6 +9,7 @@ const LoginView = () => {
     const [pin, setPin] = useState('');
     const [showPin, setShowPin] = useState(false);
     const { login } = useAuthStore();
+    const { t } = useTranslation('auth');
 
     const handleKeyPress = (num: string) => {
         if (pin.length < 4) {
@@ -73,14 +75,14 @@ const LoginView = () => {
                 </div>
             </div>
 
-            <div className="w-full max-w-[410px] relative z-20 mt-20">
+            <div className="w-full max-w-[410px] relative z-20 mt-10 md:mt-20">
                 {/* PIN Display */}
-                <div className="flex justify-between w-full mb-10">
+                <div className="flex justify-between w-full mb-6 md:mb-10">
                     {[0, 1, 2, 3].map((i) => (
                         <div
                             key={i}
                             className={`
-                                w-16 h-16 rounded-[20px] border-2 flex items-center justify-center text-3xl font-bold transition-all duration-300
+                                w-14 h-14 md:w-16 md:h-16 rounded-[16px] md:rounded-[20px] border-2 flex items-center justify-center text-2xl md:text-3xl font-bold transition-all duration-300
                                 ${i < pin.length
                                     ? 'border-brand bg-white text-brand shadow-sm shadow-brand/10'
                                     : 'border-gray-100 bg-gray-50 text-gray-400'
@@ -92,40 +94,40 @@ const LoginView = () => {
                     ))}
                     <button
                         onClick={() => setShowPin(!showPin)}
-                        className="w-16 h-16 rounded-[20px] bg-cyan-50/50 hover:bg-cyan-100/50 flex items-center justify-center text-gray-400 hover:text-brand transition-colors cursor-pointer"
+                        className="w-14 h-14 md:w-16 md:h-16 rounded-[16px] md:rounded-[20px] bg-cyan-50/50 hover:bg-cyan-100/50 flex items-center justify-center text-gray-400 hover:text-brand transition-colors cursor-pointer"
                     >
-                        {showPin ? <EyeOff className="w-7 h-7" /> : <Eye className="w-7 h-7" />}
+                        {showPin ? <EyeOff className="w-6 h-6 md:w-7 md:h-7" /> : <Eye className="w-6 h-6 md:w-7 md:h-7" />}
                     </button>
                 </div>
 
                 {/* Numpad */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
                     {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((num) => (
                         <button
                             key={num}
                             onClick={() => handleKeyPress(num)}
-                            className="h-20 w-full rounded-[20px] hover:bg-cyan-50 text-[32px] font-bold text-gray-800 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
+                            className="h-16 md:h-20 w-full rounded-[16px] md:rounded-[20px] hover:bg-cyan-50 text-2xl md:text-[32px] font-bold text-gray-800 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
                         >
                             {num}
                         </button>
                     ))}
                     <button
                         onClick={() => setPin('')}
-                        className="h-20 w-full rounded-[20px] hover:bg-red-50 text-[24px] font-bold text-red-500 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
+                        className="h-16 md:h-20 w-full rounded-[16px] md:rounded-[20px] hover:bg-red-50 text-xl md:text-[24px] font-bold text-red-500 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
                     >
                         C
                     </button>
                     <button
                         onClick={() => handleKeyPress('0')}
-                        className="h-20 w-full rounded-[20px] hover:bg-cyan-50 text-[32px] font-bold text-gray-800 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
+                        className="h-16 md:h-20 w-full rounded-[16px] md:rounded-[20px] hover:bg-cyan-50 text-2xl md:text-[32px] font-bold text-gray-800 transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
                     >
                         0
                     </button>
                     <button
                         onClick={handleDelete}
-                        className="h-20 w-full rounded-[20px] hover:bg-cyan-50 text-gray-400 hover:text-brand transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
+                        className="h-16 md:h-20 w-full rounded-[16px] md:rounded-[20px] hover:bg-cyan-50 text-gray-400 hover:text-brand transition-all active:scale-95 flex items-center justify-center select-none bg-white border border-gray-100 shadow-sm"
                     >
-                        <Delete className="w-8 h-8" />
+                        <Delete className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                 </div>
 
@@ -133,7 +135,7 @@ const LoginView = () => {
                 <div className="mb-4">
                     <button
                         onClick={handleLogin}
-                        className="w-full h-[62px] bg-brand hover:bg-brand-dark text-white rounded-[16px] text-xl font-bold transition-all active:scale-[0.98] flex items-center justify-center gap-3"
+                        className="w-full h-[56px] md:h-[62px] bg-brand hover:bg-brand-dark text-white rounded-[16px] text-lg md:text-xl font-bold transition-all active:scale-[0.98] flex items-center justify-center gap-3"
                     >
                         Tizimga kirish
                     </button>
@@ -141,11 +143,11 @@ const LoginView = () => {
 
                 {/* Secondary Actions */}
                 <div className="grid grid-cols-2 gap-2">
-                    <button className="h-[56px] bg-cyan-50/50 border-2 border-transparent hover:border-brand/20 rounded-[16px] flex items-center justify-center gap-2 text-brand font-bold transition-all active:scale-[0.98] text-base">
+                    <button className="h-[48px] md:h-[56px] bg-cyan-50/50 border-2 border-transparent hover:border-brand/20 rounded-[16px] flex items-center justify-center gap-2 text-brand font-bold transition-all active:scale-[0.98] text-sm md:text-base">
                         <ScanLine className="w-5 h-5" />
                         QR Kod
                     </button>
-                    <button className="h-[56px] bg-cyan-50/50 border-2 border-transparent hover:border-brand/20 rounded-[16px] flex items-center justify-center gap-2 text-brand font-bold transition-all active:scale-[0.98] text-base">
+                    <button className="h-[48px] md:h-[56px] bg-cyan-50/50 border-2 border-transparent hover:border-brand/20 rounded-[16px] flex items-center justify-center gap-2 text-brand font-bold transition-all active:scale-[0.98] text-sm md:text-base">
                         <Smartphone className="w-5 h-5" />
                         Login bilan
                     </button>

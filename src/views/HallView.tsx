@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import { ZoneSidebar, TableGrid, GuestModal } from '@/features/tables';
+import { ZoneSidebar, TableGrid, GuestModal, Table } from '@/features/tables';
 import { FluidPanel, ContentGrid } from '@/components/common';
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '@/features/cart';
 
 const HallView = () => {
     const navigate = useNavigate();
-    const { setSelectedTableId } = useCartStore();
+    const { setTable, setGuests } = useCartStore();
 
     // Zone State
-    const [activeZone, setActiveZone] = useState<'B' | 'M' | 'A' | 'VIP'>('B');
+    const [activeZone, setActiveZone] = useState<string>('B');
 
     // Guest Modal State
-    const [selectedTable, setSelectedTable] = useState<any>(null);
+    const [selectedTable, setSelectedTable] = useState<Table | null>(null);
     const [guestCount, setGuestCount] = useState(1);
 
     // Handlers
-    const handleTableClick = (table: any) => {
+    const handleTableClick = (table: Table) => {
         if (table.status === 'occupied') {
             // If checking out existing table
-            setTable(table.id);
+            setTable(String(table.id));
             navigate('/menu');
         } else {
             // New table -> Open Modal
@@ -30,7 +30,7 @@ const HallView = () => {
 
     const confirmGuests = () => {
         if (selectedTable) {
-            setTable(selectedTable.id);
+            setTable(String(selectedTable.id));
             setGuests(guestCount);
             setSelectedTable(null);
             navigate('/menu');
@@ -38,11 +38,9 @@ const HallView = () => {
     };
 
     return (
-        <div className="flex h-full overflow-hidden">
+        <div className="flex flex-col md:flex-row h-full overflow-hidden">
             {/* Sidebar with correct prop: activeZone */}
-            <div className="shrink-0 h-full bg-surface z-sidebar relative border-r border-gray-100">
-                <ZoneSidebar activeZone={activeZone} setActiveZone={setActiveZone} />
-            </div>
+            <ZoneSidebar activeZone={activeZone} setActiveZone={setActiveZone} />
 
             {/* Main Content */}
             <FluidPanel className="p-6 bg-surface-light relative z-base w-full">
@@ -50,7 +48,7 @@ const HallView = () => {
 
 
                     <ContentGrid>
-                        <TableGrid onTableClick={handleTableClick} />
+                        <TableGrid activeZone={activeZone} onTableClick={handleTableClick} />
                     </ContentGrid>
                 </div>
             </FluidPanel>
@@ -69,4 +67,3 @@ const HallView = () => {
 };
 
 export default HallView;
-

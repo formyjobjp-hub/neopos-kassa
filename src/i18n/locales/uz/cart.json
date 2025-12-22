@@ -1,0 +1,15 @@
+{
+    "cart": {
+        "title": "Savat",
+        "empty": "Savat bo'sh",
+        "guests": "Mehmonlar",
+        "items": "Mahsulotlar",
+        "subtotal": "Oraliq jami",
+        "serviceCharge": "Xizmat to'lovi",
+        "total": "Jami",
+        "checkout": "To'lovga o'tish",
+        "clearCart": "Savatni tozalash",
+        "itemAdded": "Mahsulot qo'shildi",
+        "itemRemoved": "Mahsulot o'chirildi"
+    }
+}

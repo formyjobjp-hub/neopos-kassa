@@ -9,12 +9,12 @@ import { OrderSummary, PaymentMethods } from '@/features/checkout';
 
 const CheckoutView = () => {
     const navigate = useNavigate();
-    const { t } = useTranslation('common');
+    const { t } = useTranslation(['checkout', 'common']);
     const { getSubtotal, getServiceCharge, getTotal, clearCart } = useCartStore();
     const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
 
     const finalizePayment = () => {
-        toast.success(t('checkout.paymentSuccess'), {
+        toast.success(t('checkout:checkout.paymentSuccess'), {
             style: {
                 borderRadius: '16px',
                 background: '#1F2937',
@@ -36,17 +36,17 @@ const CheckoutView = () => {
             <div className="max-w-6xl mx-auto w-full h-full">
                 <div className="flex items-center gap-4 mb-6">
                     <BackButton to="/menu" />
-                    <h2 className="text-3xl font-black text-gray-800 tracking-tighter">{t('checkout.title')}</h2>
+                    <h2 className="text-3xl font-black text-gray-800 tracking-tighter">{t('checkout:checkout.title')}</h2>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 items-start h-full pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start h-full pb-20">
                     {/* Left Column: Order Summary (Smaller) */}
-                    <div className="col-span-1 bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 overflow-hidden h-full max-h-[calc(100vh-180px)]">
+                    <div className="lg:col-span-1 bg-white rounded-[32px] p-6 shadow-sm border border-gray-100 overflow-hidden h-auto lg:h-full lg:max-h-[calc(100dvh-180px)]">
                         <OrderSummary />
                     </div>
 
                     {/* Right Column: Payment Methods (Larger) */}
-                    <div className="col-span-2">
+                    <div className="lg:col-span-2">
                         <PaymentMethods
                             selectedMethod={selectedMethod}
                             onSelect={setSelectedMethod}

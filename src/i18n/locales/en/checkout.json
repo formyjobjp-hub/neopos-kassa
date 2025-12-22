@@ -1,0 +1,17 @@
+{
+    "checkout": {
+        "title": "Checkout",
+        "orderSummary": "Order Summary",
+        "paymentMethod": "Payment Method",
+        "selectPayment": "Select payment method",
+        "cash": "Cash",
+        "card": "Card",
+        "split": "Split Bill",
+        "online": "Online Payment",
+        "completePayment": "Complete Payment",
+        "paymentSuccess": "Payment successful!",
+        "paymentFailed": "Payment failed",
+        "tip": "Tip",
+        "addTip": "Add Tip"
+    }
+}

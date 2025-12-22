@@ -1,0 +1,15 @@
+{
+    "cart": {
+        "title": "Cart",
+        "empty": "Cart is empty",
+        "guests": "Guests",
+        "items": "Items",
+        "subtotal": "Subtotal",
+        "serviceCharge": "Service Charge",
+        "total": "Total",
+        "checkout": "Proceed to Checkout",
+        "clearCart": "Clear Cart",
+        "itemAdded": "Item added",
+        "itemRemoved": "Item removed"
+    }
+}

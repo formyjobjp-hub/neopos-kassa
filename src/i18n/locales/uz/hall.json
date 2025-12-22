@@ -1,0 +1,20 @@
+{
+    "hall": {
+        "title": "Zal",
+        "zones": {
+            "B": "Asosiy zal",
+            "M": "O'rta zal",
+            "A": "A zal",
+            "VIP": "VIP zal"
+        },
+        "table": "Stol",
+        "tableNumber": "Stol №",
+        "available": "Bo'sh",
+        "occupied": "Band",
+        "reserved": "Bron qilingan",
+        "selectGuests": "Mehmonlar sonini tanlang",
+        "guestsCount": "Mehmonlar soni",
+        "startOrder": "Buyurtmani boshlash",
+        "seats": "{{count}} kishilik"
+    }
+}

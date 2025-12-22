@@ -4,6 +4,7 @@ export interface Table {
     status: 'available' | 'occupied' | 'reserved';
     seats: number;
     type: 'standard' | 'booth' | 'vip';
+    zone: string;
     price?: number;
     time?: string;
 }

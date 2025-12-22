@@ -4,7 +4,7 @@ import { APP_CONFIG } from '@/config/constants';
 import { useTranslation } from 'react-i18next';
 
 export const OrderSummary = () => {
-    const { t } = useTranslation('common');
+    const { t } = useTranslation(['checkout', 'cart', 'common']);
     const { items, guestCount, getSubtotal, getServiceCharge, getTotal } = useCartStore();
 
     const formatPrice = (price: number) =>
@@ -16,10 +16,10 @@ export const OrderSummary = () => {
     return (
         <div className="bg-white rounded-3xl p-card-lg shadow-premium border border-gray-100">
             <div className="border-b border-gray-100 pb-card mb-card">
-                <h3 className="text-heading-lg font-black text-gray-800 mb-2">{t('checkout.orderSummary')}</h3>
+                <h3 className="text-heading-lg font-black text-gray-800 mb-2">{t('checkout:checkout.orderSummary')}</h3>
                 {guestCount > 0 && (
                     <div className="flex items-center gap-2">
-                        <span className="text-label text-gray-400 uppercase">{t('common.guests')}:</span>
+                        <span className="text-label text-gray-400 uppercase">{t('cart:cart.guests')}:</span>
                         <span className="bg-brand/10 px-3 py-1 rounded-lg text-caption font-bold text-brand">{guestCount}</span>
                     </div>
                 )}
@@ -46,15 +46,15 @@ export const OrderSummary = () => {
             {/* Totals */}
             <div className="border-t border-gray-200 pt-card space-y-3">
                 <div className="flex justify-between text-body">
-                    <span className="text-gray-600 font-semibold">{t('cart.subtotal')}</span>
+                    <span className="text-gray-600 font-semibold">{t('cart:cart.subtotal')}</span>
                     <span className="font-bold text-gray-800">{formatPrice(getSubtotal())}</span>
                 </div>
                 <div className="flex justify-between text-body">
-                    <span className="text-gray-600 font-semibold">{t('cart.serviceCharge')}</span>
+                    <span className="text-gray-600 font-semibold">{t('cart:cart.serviceCharge')}</span>
                     <span className="font-bold text-gray-800">{formatPrice(getServiceCharge())}</span>
                 </div>
                 <div className="flex justify-between pt-3 border-t border-gray-200">
-                    <span className="text-heading-sm font-black text-gray-900">{t('cart.total')}</span>
+                    <span className="text-heading-sm font-black text-gray-900">{t('cart:cart.total')}</span>
                     <span className="text-heading font-black text-brand">{formatPrice(getTotal())}</span>
                 </div>
             </div>

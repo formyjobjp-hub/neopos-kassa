@@ -13,8 +13,8 @@ export const ContentGrid = ({ children, className = '' }: { children: ReactNode;
         grid-cols-2
         tablet:grid-cols-3
         laptop:grid-cols-4
-        desktop:grid-cols-5
-        fhd:grid-cols-6
+        desktop:grid-cols-6
+        fhd:grid-cols-8
         ${className}`}
     >
         {children}

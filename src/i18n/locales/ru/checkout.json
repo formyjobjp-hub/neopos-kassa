@@ -1,0 +1,17 @@
+{
+    "checkout": {
+        "title": "Оплата",
+        "orderSummary": "Итоги заказа",
+        "paymentMethod": "Способ оплаты",
+        "selectPayment": "Выберите способ оплаты",
+        "cash": "Наличные",
+        "card": "Карта",
+        "split": "Разделить счет",
+        "online": "Онлайн оплата",
+        "completePayment": "Завершить оплату",
+        "paymentSuccess": "Оплата прошла успешно!",
+        "paymentFailed": "Ошибка оплаты",
+        "tip": "Чаевые",
+        "addTip": "Добавить чаевые"
+    }
+}

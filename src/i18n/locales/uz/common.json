@@ -1,10 +1,11 @@
 {
     "navigation": {
-        "hall": "Zal",
-        "order": "Buyurtma",
+        "hall": "Yangi buyurtma",
+        "order": "Menyu",
         "menu": "Menyu",
         "waiting": "Kutish",
-        "checkout": "To'lov"
+        "checkout": "To'lov",
+        "settings": "Sozlamalar"
     },
     "buttons": {
         "confirm": "Tasdiqlash",
@@ -43,79 +44,12 @@
         "tax": "Soliq",
         "serviceCharge": "Xizmat to'lovi"
     },
-    "roles": {
-        "waiter": "Ofitsiant",
-        "kassir": "Kassir",
-        "admin": "Administrator",
-        "chef": "Oshpaz"
-    },
     "status": {
         "active": "Faol",
         "inactive": "Nofaol",
         "pending": "Kutilmoqda",
         "completed": "Bajarildi",
         "cancelled": "Bekor qilindi"
-    },
-    "hall": {
-        "title": "Zal",
-        "zones": {
-            "B": "Asosiy zal",
-            "M": "O'rta zal",
-            "A": "A zal",
-            "VIP": "VIP zal"
-        },
-        "table": "Stol",
-        "tableNumber": "Stol №",
-        "available": "Bo'sh",
-        "occupied": "Band",
-        "reserved": "Bron qilingan",
-        "selectGuests": "Mehmonlar sonini tanlang",
-        "guestsCount": "Mehmonlar soni",
-        "startOrder": "Buyurtmani boshlash"
-    },
-    "menu": {
-        "title": "Menyu",
-        "categories": "Kategoriyalar",
-        "categoryItems": {
-            "firstMeals": "Birinchi taomlar",
-            "secondMeals": "Ikkinchi taomlar",
-            "drinks": "Ichimliklar",
-            "desserts": "Desertlar",
-            "coffee": "Qahva"
-        },
-        "searchPlaceholder": "Taom qidirish...",
-        "addToOrder": "Buyurtmaga qo'shish",
-        "noItems": "Mahsulotlar topilmadi",
-        "clearSearch": "Qidiruvni tozalash",
-        "popular": "Ommabop",
-        "new": "Yangi"
-    },
-    "cart": {
-        "title": "Savat",
-        "empty": "Savat bo'sh",
-        "items": "Mahsulotlar",
-        "subtotal": "Oraliq jami",
-        "serviceCharge": "Xizmat to'lovi",
-        "total": "Jami",
-        "checkout": "To'lovga o'tish",
-        "clearCart": "Savatni tozalash",
-        "itemAdded": "Mahsulot qo'shildi",
-        "itemRemoved": "Mahsulot o'chirildi"
-    },
-    "checkout": {
-        "title": "To'lov",
-        "orderSummary": "Buyurtma xulosasi",
-        "paymentMethod": "To'lov usuli",
-        "selectPayment": "To'lov usulini tanlang",
-        "cash": "Naqd pul",
-        "card": "Karta",
-        "split": "Bo'lib to'lash",
-        "online": "Onlayn to'lov",
-        "completePayment": "To'lovni yakunlash",
-        "paymentSuccess": "To'lov muvaffaqiyatli amalga oshirildi!",
-        "paymentFailed": "To'lov amalga oshmadi",
-        "tip": "Choy puli",
-        "addTip": "Choy puli qo'shish"
     },
     "messages": {
         "welcome": "Xush kelibsiz!",

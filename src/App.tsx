@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuthStore } from './store/auth';
+import { useAuthStore } from '@/features/auth';
 import LoginView from './views/LoginView';
 import HallView from './views/HallView';
 import MenuView from './views/MenuView';

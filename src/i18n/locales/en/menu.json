@@ -1,0 +1,19 @@
+{
+    "menu": {
+        "title": "Menu",
+        "categories": "Categories",
+        "categoryItems": {
+            "firstMeals": "First Meals",
+            "secondMeals": "Second Meals",
+            "drinks": "Drinks",
+            "desserts": "Desserts",
+            "coffee": "Coffee"
+        },
+        "searchPlaceholder": "Search dishes...",
+        "addToOrder": "Add to Order",
+        "noItems": "No items found",
+        "clearSearch": "Clear search",
+        "popular": "Popular",
+        "new": "New"
+    }
+}
