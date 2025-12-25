@@ -1,0 +1,16 @@
+{
+    "name": "@neopos/shared-entities",
+    "version": "0.0.0",
+    "main": "./index.ts",
+    "keywords": [
+        "prisma",
+        "zod"
+    ],
+    "scripts": {
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "typescript": "^5.7.2",
+        "prisma": "^5.10.0"
+    }
+}

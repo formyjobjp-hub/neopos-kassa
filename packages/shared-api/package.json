@@ -1,0 +1,12 @@
+{
+    "name": "@neopos/shared-api",
+    "version": "0.0.0",
+    "main": "./index.ts",
+    "types": "./index.ts",
+    "dependencies": {
+        "@reduxjs/toolkit": "^2.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.7.2"
+    }
+}
